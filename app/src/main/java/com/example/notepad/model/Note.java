@@ -14,12 +14,11 @@ import java.util.List;
 public class Note implements Parcelable {
 
 
-    private Integer id;
+    private int id=0;
     private String title;
     private String  noteText;
     private long createdDateTime;
     private long modifiedDateTime;
-
     @ColumnInfo(name = "version")
     private int version;
     private ArrayList<String> imageListParsedPath=null;
@@ -37,6 +36,13 @@ public class Note implements Parcelable {
         this.modifiedDateTime = modifiedDateTime;
         this.version = version;
         this.imageListParsedPath = imageListParsedPath;
+    }
+    @Ignore
+    public Note(String title, String noteText, long createdDateTime, long modifiedDateTime) {
+        this.title = title;
+        this.noteText = noteText;
+        this.createdDateTime = createdDateTime;
+        this.modifiedDateTime = modifiedDateTime;
     }
 
     protected Note(Parcel in) {
